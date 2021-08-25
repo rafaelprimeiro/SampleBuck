@@ -6,7 +6,7 @@ targets:
   BuckSample:
     type: application
     platform: iOS
-    deploymentTarget: "10.0"
+    deploymentTarget: "13.0"
     sources: [BuckSample]
     settings:
       configs:
