@@ -4,3 +4,4 @@ setup:
 	mkdir tools
 	bundle install
 	xcodegen
+

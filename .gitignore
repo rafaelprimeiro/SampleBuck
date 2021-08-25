@@ -45,4 +45,4 @@ Pods/
 
 BuckSample.xcodeproj
 BuckSample.xcworkspace
-
+tools/*
