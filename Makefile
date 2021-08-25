@@ -1,7 +1,7 @@
 BUCK=tools/buck
 
 setup:
-	mkdir tools
+	[ ! -d "tools" ] mkdir tools || echo "tools exists"
 	bundle install
 	xcodegen
 

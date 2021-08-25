@@ -1,9 +1,7 @@
 name: BuckSample
-include:
-  - base_spec.yml
 options:
   bundleIdPrefix: dev.rafaelgabriel
-  postGenCommand: bundle exec pod install --repo-update
+  postGenCommand: bundle exec pod install
 targets:
   BuckSample:
     type: application
@@ -19,7 +17,7 @@ targets:
           CUSTOM_BUILD_SETTING: my_release_value
           DEBUG_MODE: NO
 
-  BuckSample:
+  BuckSampleTests:
     type: bundle.unit-test
     platform: iOS
     sources:
@@ -29,4 +27,16 @@ targets:
     scheme:
       testTargets:
         - BuckSampleTests
+      gatherCoverageData: true
+  
+  BuckSampleUITests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - BuckSampleUITests/
+    dependencies:
+      - target: BuckSample
+    scheme:
+      testTargets:
+        - BuckSampleUITests
       gatherCoverageData: true
