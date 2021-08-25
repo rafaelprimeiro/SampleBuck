@@ -38,3 +38,8 @@ Execute o comando a seguir para configurar o projeto:
 ```
 make setup
 ```
+
+## Buck
+
+A versão do buck que vamos usar é a do Airbnb e você pode encontrar nesse [repo](https://github.com/airbnb/BuckSample).
+
