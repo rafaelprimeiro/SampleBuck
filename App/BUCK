@@ -1,0 +1,55 @@
+apple_asset_catalog(
+    name = "BuckSampleAssetCatalog",
+    visibility = ["//App:"],
+    app_icon = "AppIcon",
+    dirs = [
+        "BuckSample/Assets.xcassets",
+    ],
+)
+
+apple_resource(
+    name = "BuckSampleStoryboards",
+    visibility = ["//App:"],
+    variants = glob([
+        "BuckSample/*.lproj/*.storyboard",
+    ]),
+)
+
+apple_binary(
+    name = "BuckSampleAppBinary",
+    visibility = ["//App:"],
+    srcs = glob([
+        'BuckSample/**/*.m',
+        'BuckSample/**/*.swift',
+    ]),
+    frameworks = [
+        '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+        '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+        '$SDKROOT/System/Library/Frameworks/SwiftUI.framework'
+    ],
+    headers = glob([
+        'BuckSample/**/*.h',
+    ]),
+    preprocessor_flags = [
+        "-fobjc-arc",
+        "-Wno-objc-designated-initializers",
+    ],
+    deps = [
+        ':BuckSampleStoryboards',
+        ':BuckSampleAssetCatalog'
+    ],
+)
+
+apple_bundle(
+    name = 'App',
+    binary = ':BuckSampleAppBinary',
+    extension = 'app',
+    info_plist = 'BuckSample/Info.plist',
+    info_plist_substitutions = {
+        'PRODUCT_BUNDLE_IDENTIFIER': 'dev.rafaelgabriel.BuckSample',
+        'CURRENT_PROJECT_VERSION': '1',
+        'DEVELOPMENT_LANGUAGE': 'en',
+        'PRODUCT_BUNDLE_PACKAGE_TYPE': 'APPL',
+        'PRODUCT_MODULE_NAME': 'BuckSample'
+    },
+)
