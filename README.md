@@ -48,3 +48,9 @@ Para instalar ele basta rodar o comando
 make install_buck
 ```
 
+## Projeto
+
+Para abrir o projeto execute o comando:
+```
+make project
+```
