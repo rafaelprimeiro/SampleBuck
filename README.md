@@ -54,3 +54,9 @@ Para abrir o projeto execute o comando:
 ```
 make project
 ```
+
+### Rodar em debug no simulador
+
+```
+make debug
+```
